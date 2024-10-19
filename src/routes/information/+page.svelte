@@ -52,7 +52,7 @@
 			hasGift: false
 		});
 
-		goto('/information');
+		//goto('/information');
 		console.log('updateGift-after');
 	}
 
@@ -68,7 +68,7 @@
 		const dialog = document.querySelector('#processing');
 		const theForm = document.querySelector('form');
 		const alertBox = document.querySelector('#notifications');
-		const inputs = theForm.querySelectorAll('input, select,textarea');
+		const inputs = theForm?.querySelectorAll('input, select,textarea');
 
 		console.log('processing');
 

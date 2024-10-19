@@ -6,7 +6,7 @@ export const handler = init({
 	assets: new Set(["favicon.png"]),
 	mimeTypes: {".png":"image/png"},
 	_: {
-		client: {"start":{"file":"_app/immutable/entry/start.d83dd725.js","imports":["_app/immutable/entry/start.d83dd725.js","_app/immutable/chunks/index.1f219f11.js","_app/immutable/chunks/singletons.53aea285.js","_app/immutable/chunks/index.edd7e2d4.js"],"stylesheets":[],"fonts":[]},"app":{"file":"_app/immutable/entry/app.1496b5f7.js","imports":["_app/immutable/entry/app.1496b5f7.js","_app/immutable/chunks/index.1f219f11.js"],"stylesheets":[],"fonts":[]}},
+		client: {"start":{"file":"_app/immutable/entry/start.a274155c.js","imports":["_app/immutable/entry/start.a274155c.js","_app/immutable/chunks/index.1f219f11.js","_app/immutable/chunks/singletons.951004c6.js","_app/immutable/chunks/index.edd7e2d4.js"],"stylesheets":[],"fonts":[]},"app":{"file":"_app/immutable/entry/app.62175489.js","imports":["_app/immutable/entry/app.62175489.js","_app/immutable/chunks/index.1f219f11.js"],"stylesheets":[],"fonts":[]}},
 		nodes: [
 			() => import('../server/nodes/0.js'),
 			() => import('../server/nodes/1.js'),

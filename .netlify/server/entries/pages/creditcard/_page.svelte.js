@@ -68,16 +68,9 @@ const Page = create_ssr_component(($$result, $$props, $$bindings, slots) => {
     const theForm = document.querySelector("form");
     const alertBox = document.querySelector("#notifications");
     const inputs = theForm.querySelectorAll("input, select,textarea");
-    let skipVal = true;
+    let skipVal = false;
     updateGift();
-    dialog.show();
-    setTimeout(
-      () => {
-        console.log("processed");
-        goto(`/thanks`);
-      },
-      "2400"
-    );
+    console.log("theForm.checkValidity()", theForm.checkValidity());
     if (theForm.checkValidity() || skipVal) {
       console.log("nextstep", theForm);
       updateGift();

@@ -36,17 +36,41 @@ const Page = create_ssr_component(($$result, $$props, $$bindings, slots) => {
       totalAmount,
       hasGift: false
     });
-    goto("/information");
     console.log("updateGift-after");
   }
   function processDonation() {
     document.querySelector("#processing");
     const theForm = document.querySelector("form");
-    document.querySelector("#notifications");
-    theForm.querySelectorAll("input, select,textarea");
+    const alertBox = document.querySelector("#notifications");
+    const inputs = theForm.querySelectorAll("input, select,textarea");
     console.log("processing");
     updateGift();
     goto("/payment");
+    {
+      if (theForm.checkValidity()) {
+        console.log("checkValidity", theForm.checkValidity());
+        goto("/payment");
+        console.log("updateGift-after");
+      } else {
+        let theError = [];
+        let totalErrors = inputs.length;
+        for (let input of inputs) {
+          console.log("detect", window.getComputedStyle(input, "-webkit-autofill").getPropertyValue("appearance") === "menulist-button");
+          if (input.required && !input.checkValidity()) {
+            document.getElementById("firstname").focus();
+            alertBox.firstChild.classList.remove("hidebanner");
+            input.parentNode.classList.add("error");
+            console.log("input.previousSibling", input.previousSibling.id);
+            theError.push(" " + input.parentNode.firstElementChild.firstElementChild.textContent);
+          }
+        }
+        let lastOne = theError.length - 1;
+        theError.splice(theError.length - 1, theError.length, " and " + theError[lastOne]);
+        theErrors = theError;
+        alertBox.classList.remove("showMe");
+        console.log("showErrors", totalErrors);
+      }
+    }
     console.log("processDonation");
   }
   const countries = [

@@ -140,8 +140,8 @@
 * {
   font-family: system-ui;
 }
-html, body {
-  height: 100%;
+body {
+  height: 100vh;
   position: relative;
 }
 body {
@@ -156,8 +156,7 @@ main {
 :focus-visible,
 input[type=radio]:focus-visible + label,
 input[type=checkbox]:focus-visible {
-  outline: 2px dotted blue;
-  outline-offset: 2px;
+  box-shadow: 0 0 0 2px blue;
 }
 input:focus-visible, select:focus-visible, textarea:focus-visible {
   outline-offset: 1px;
