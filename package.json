@@ -1,0 +1,34 @@
+{
+  "private": true,
+  "scripts": {
+    "build": "vite build",
+    "format": "prettier --plugin-search-dir . --write .",
+    "check:watch": "svelte-kit sync && svelte-check --tsconfig ./jsconfig.json --watch",
+    "preview": "vite preview",
+    "lint": "prettier --plugin-search-dir . --check . && eslint .",
+    "check": "svelte-kit sync && svelte-check --tsconfig ./jsconfig.json",
+    "dev": "vite dev"
+  },
+  "name": "beastieboys",
+  "version": "0.0.1",
+  "type": "module",
+  "devDependencies": {
+    "@sveltejs/adapter-auto": "^2.0.0",
+    "@sveltejs/adapter-netlify": "^2.0.6",
+    "@sveltejs/kit": "^1.5.0",
+    "eslint": "^8.28.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-svelte3": "^4.0.0",
+    "prettier": "^2.8.0",
+    "prettier-plugin-svelte": "^2.8.1",
+    "sass": "^1.59.3",
+    "svelte": "^3.54.0",
+    "svelte-check": "^3.0.1",
+    "svelte-preprocess": "^5.0.3",
+    "typescript": "^5.0.2",
+    "vite": "^4.0.0"
+  },
+  "dependencies": {
+    "scss": "^0.2.4"
+  }
+}

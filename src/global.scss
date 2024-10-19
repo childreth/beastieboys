@@ -1,0 +1,270 @@
+@import './theme.scss';
+
+
+
+* {
+	font-family: system-ui;
+}
+body  {
+
+	height:100vh;
+	position: relative;
+}
+body {
+	margin: 0;
+	padding: 0;
+	scroll-behavior: smooth;
+}
+main {
+	display: flex;
+	flex-direction: column;
+	// overflow: hidden;
+}
+:focus-visible,
+input[type='radio']:focus-visible + label,
+input[type='checkbox']:focus-visible
+ {
+	// outline: 2px dotted $theme-focus;
+	// outline-offset: 2px;
+	box-shadow: 0 0 0 2px $theme-focus;
+}
+
+input:focus-visible,select:focus-visible,textarea:focus-visible{
+	outline-offset: 1px;
+}
+// label:has(input[type='radio']:checked:focus-visible)
+
+p {
+	line-height: 1.625rem;
+}
+
+
+//a11y hide
+.hideIt {
+	clip: rect(0 0 0 0);
+	clip-path: inset(50%);
+	height: 1px;
+	overflow: hidden;
+	position: absolute;
+	white-space: nowrap;
+	width: 1px;
+}
+
+//buttons
+button.secondary,
+a.secondary {
+	background: white;
+	border: 1px solid $theme-primary-lighter;
+	border-radius: $border-rnd-md;
+	padding: 0.375em 1.25em;
+	font-weight: 600;
+	font-size: $fs-body;
+	color: $ink-dark;
+}
+
+#hero,#thankyou {
+	min-height: 400px;
+	display: flex;
+	background: $poster url('./img/hero-img.webp') no-repeat 120% 50%;
+	background-size:  contain;
+	
+	align-items: flex-end;
+	justify-content: center;
+
+	> div {
+		flex-grow: 1;
+		max-width: $maxWidth;
+		padding: 0 0 60px 84px;
+	}
+	h1,
+	h2 {
+		color: $neutral-90;
+		font-family: $theme-font-family;
+	}
+	h1 {
+		color: $ink;
+		max-width: 600px;
+		font-family: $theme-font-family;
+		padding: 0;
+		margin: 0 0 $p-3 0;
+		font-size: clamp(2.25rem, 4vw, 3rem);
+		span {
+			font-family: $theme-font-family;
+			overflow: visible;
+			color: $theme-primary;
+			position: relative;
+		}
+		.underline  {
+			position: absolute;
+			bottom: -12px;
+			left: 0;
+			height: 30px;
+			width: 110%;
+			padding-right: 24px;
+		}
+		// span:after {
+		// 	content: '';
+		// 	background: transparent url('./img/underline.svg') no-repeat 50% 100%;
+		// 	position: absolute;
+		// 	bottom: -5px;
+		// 	left: 0;
+		// 	height: 30px;
+		// 	width: 100%;
+		// 	padding-right: 24px;
+		// 	overflow: visible;
+		// 	background-size: 100%;
+		// }
+	}
+	p {
+		font-size: clamp(1rem, 2vw, 1.25rem);
+		line-height: 1.75em;
+		margin: $p-6 0 0 0;
+		max-width: 600px;
+	}
+}
+#thankyou {
+	align-items: center;
+	justify-content: center;
+	background-image: none;
+	> div {
+		flex-grow: 1;
+		display: flex;
+		flex-direction: column;
+		max-width: 1000px;
+		padding: 60px 84px;
+		align-items: center;
+		text-align: center;
+	}
+	h1,p {
+		max-width: 1000px;
+		.underline  {
+			position: absolute;
+			bottom: -16px;
+			left: 0;
+			height: 30px;
+			width: 104%;
+			padding-right: 24px;
+		}
+	}
+	.bigemoji {
+		font-size:3rem;
+	}
+}
+@media only screen and (max-width: 768px) {
+	#hero,#thankyou {
+		min-height: 320px;
+		background-image: none;
+		align-items: center;
+		min-height: auto;
+
+		> div {
+			flex-basis: auto;
+			padding: 48px 24px;
+		}
+		h1,
+		p {
+			text-align: center;
+		}
+		
+	}
+}
+//buttons
+
+button.plain, a.plain {
+	border:0;
+	color: $theme-primary;
+	text-decoration: underline;
+	padding: $p-0_5 $p-1;
+	@include body;
+	background-color: transparent;
+
+
+}
+
+//mission and faqs
+
+//footer block
+
+#footImg {
+	background: transparent url('./img/image-footer.webp') no-repeat bottom center;
+	background-size: contain;
+	height: 280px;
+	@media only screen and (max-width: 768px) {
+		display: none;
+	}
+}
+footer {
+	background: $theme-primary;
+	min-height: 220px;
+	display: flex;
+	flex-direction: column;
+
+	.location {
+		flex-grow: 1;
+		padding: $p-7 $p-7;
+		color: $theme-primary-lightest;
+		display: flex;
+		flex-direction: column;
+		justify-content: start;
+	}
+	.social {
+		width: 144px;
+		height: 24px;
+		background: url(./img/social-links.png) no-repeat center left;
+		background-size: contain;
+	}
+	h2 {
+		margin: 0;
+		font-size: $fs-body-lg;
+	}
+	address {
+		font-style: normal;
+		padding-top: $p-2;
+		font-size: $fs-body-sm;
+	}
+	.copyright {
+		background: $ink-dark;
+		color: white;
+		font-size: $fs-body-xs;
+		padding: $p-6 $p-7;
+	}
+}
+
+// layout grids
+
+@mixin maxContent {
+	max-width: $maxWidth;
+	align-self: center;
+}
+
+@mixin flex-col {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+
+	> div {
+		flex: 1 1 0px;
+	}
+	@media only screen and (max-width: 768px) {
+		flex-direction: column;
+	}
+}
+
+// main page
+.donateSec {
+	@include flex-col;
+	@include maxContent;
+	padding: 0 84px;
+	@media only screen and (max-width: 768px) {
+		padding: 0px;
+	}
+}
+//iframe form
+div.iframeFake {
+	padding: 0 $p-8;
+	@media only screen and (max-width: 768px) {
+		padding: 0;
+	}
+}
+
+//spacing

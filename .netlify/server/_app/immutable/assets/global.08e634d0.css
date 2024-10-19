@@ -1,0 +1,361 @@
+@import url("https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700&display=swap");@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20,300,0,0");
+
+:root {
+  --theme-primary: hsl(150, 21%, 30%);
+  --theme-primary-light: hsl(150 21% 50%);
+  --theme-primary-lighter: hsl(150 21% 75%);
+  --theme-primary-lightest: hsl(150 21% 90%);
+  --theme-primary-dark: hsl(150, 21%, 20%);
+  --bg-summary-bottom: hsl(25 8% 88%);
+  --bg-summary-top: hsl(25 8% 96%);
+  --baseSize: 16px;
+  font-size: var(--baseSize);
+  scroll-behavior: smooth;
+}
+:global .material-symbols-rounded {
+  font-variation-settings: "FILL" 0, "wght" 300, "GRAD" 0, "opsz" 20;
+}
+:global .material-symbols-rounded {
+  font-size: 1rem;
+  color: hsl(25, 4%, 50%);
+}
+:global .SR_hide {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+@keyframes slideIn {
+  0% {
+    transform: scale(1) translateY(80px);
+    filter: blur(4px);
+    opacity: 0;
+  }
+  50% {
+    filter: blur(0px);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1) translateY(0px);
+    filter: blur(0px);
+    opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  0% {
+    backdrop-filter: blur(0px);
+    -webkit-backdrop-filter: blur(0px);
+    background: rgba(0, 0, 0, 0);
+  }
+  50% {
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+  }
+  100% {
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+    background: rgba(0, 0, 0, 0.6);
+  }
+}
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+    backdrop-filter: blur(0px);
+    -webkit-backdrop-filter: blur(0px);
+    background: rgba(0, 0, 0, 0.6);
+  }
+  100% {
+    opacity: 0;
+    backdrop-filter: blur(0px);
+    -webkit-backdrop-filter: blur(0px);
+    background: rgba(0, 0, 0, 0);
+  }
+}
+@keyframes slideOut {
+  0% {
+    transform: scale(1) translateY(0px);
+    filter: blur(0px);
+    opacity: 1;
+  }
+  50% {
+    filter: blur(0px);
+  }
+  100% {
+    transform: scale(1) translateY(80px);
+    filter: blur(0px);
+    opacity: 1;
+  }
+}
+@media screen and (max-width: 480px) {
+  @keyframes fadeIn {
+    0% {
+      backdrop-filter: blur(0px);
+      -webkit-backdrop-filter: blur(0px);
+      background: rgba(0, 0, 0, 0);
+    }
+    50% {
+      backdrop-filter: blur(2px);
+      -webkit-backdrop-filter: blur(2px);
+    }
+    100% {
+      backdrop-filter: blur(2px);
+      -webkit-backdrop-filter: blur(2px);
+      background: rgba(0, 0, 0, 0.6);
+    }
+  }
+  @keyframes slideIn {
+    0% {
+      transform: scale(1) translateY(80px);
+      filter: blur(4px);
+      opacity: 1;
+    }
+    50% {
+      filter: blur(0px);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(1) translateY(0px);
+      filter: blur(0px);
+      opacity: 1;
+    }
+  }
+  @keyframes fadeOut {
+    0% {
+      opacity: 1;
+      backdrop-filter: blur(0px);
+      -webkit-backdrop-filter: blur(0px);
+      background: rgba(0, 0, 0, 0.6);
+    }
+    100% {
+      opacity: 0;
+      backdrop-filter: blur(0px);
+      -webkit-backdrop-filter: blur(0px);
+      background: rgba(0, 0, 0, 0);
+    }
+  }
+}
+* {
+  font-family: system-ui;
+}
+html, body {
+  height: 100%;
+  position: relative;
+}
+body {
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+main {
+  display: flex;
+  flex-direction: column;
+}
+:focus-visible,
+input[type=radio]:focus-visible + label,
+input[type=checkbox]:focus-visible {
+  outline: 2px dotted blue;
+  outline-offset: 2px;
+}
+input:focus-visible, select:focus-visible, textarea:focus-visible {
+  outline-offset: 1px;
+}
+p {
+  line-height: 1.625rem;
+}
+.hideIt {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+button.secondary,
+a.secondary {
+  background: white;
+  border: 1px solid hsl(150, 21%, 75%);
+  border-radius: 8px;
+  padding: 0.375em 1.25em;
+  font-weight: 600;
+  font-size: 1rem;
+  color: HSL(240 4% 15%);
+}
+#hero, #thankyou {
+  min-height: 400px;
+  display: flex;
+  background: #f2f1ef url("/_app/immutable/assets/hero-img.05083080.webp") no-repeat 120% 50%;
+  background-size: contain;
+  align-items: flex-end;
+  justify-content: center;
+}
+#hero > div, #thankyou > div {
+  flex-grow: 1;
+  max-width: 1400px;
+  padding: 0 0 60px 84px;
+}
+#hero h1,
+#hero h2, #thankyou h1,
+#thankyou h2 {
+  color: hsl(25, 4%, 90%);
+  font-family: "Unbounded";
+}
+#hero h1, #thankyou h1 {
+  color: HSL(225 4% 18%);
+  max-width: 600px;
+  font-family: "Unbounded";
+  padding: 0;
+  margin: 0 0 12px 0;
+  font-size: clamp(2.25rem, 4vw, 3rem);
+}
+#hero h1 span, #thankyou h1 span {
+  font-family: "Unbounded";
+  overflow: visible;
+  color: var(--theme-primary);
+  position: relative;
+}
+#hero h1 .underline, #thankyou h1 .underline {
+  position: absolute;
+  bottom: -12px;
+  left: 0;
+  height: 30px;
+  width: 110%;
+  padding-right: 24px;
+}
+#hero p, #thankyou p {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  line-height: 1.75em;
+  margin: 24px 0 0 0;
+  max-width: 600px;
+}
+#thankyou {
+  align-items: center;
+  justify-content: center;
+  background-image: none;
+}
+#thankyou > div {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  max-width: 1000px;
+  padding: 60px 84px;
+  align-items: center;
+  text-align: center;
+}
+#thankyou h1, #thankyou p {
+  max-width: 1000px;
+}
+#thankyou h1 .underline, #thankyou p .underline {
+  position: absolute;
+  bottom: -16px;
+  left: 0;
+  height: 30px;
+  width: 104%;
+  padding-right: 24px;
+}
+#thankyou .bigemoji {
+  font-size: 3rem;
+}
+@media only screen and (max-width: 768px) {
+  #hero, #thankyou {
+    min-height: 320px;
+    background-image: none;
+    align-items: center;
+    min-height: auto;
+  }
+  #hero > div, #thankyou > div {
+    flex-basis: auto;
+    padding: 48px 24px;
+  }
+  #hero h1,
+  #hero p, #thankyou h1,
+  #thankyou p {
+    text-align: center;
+  }
+}
+button.plain, a.plain {
+  border: 0;
+  color: var(--theme-primary);
+  text-decoration: underline;
+  padding: 2px 4px;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  background-color: transparent;
+}
+#footImg {
+  background: transparent url("/_app/immutable/assets/image-footer.5fcdff1d.webp") no-repeat bottom center;
+  background-size: contain;
+  height: 280px;
+}
+@media only screen and (max-width: 768px) {
+  #footImg {
+    display: none;
+  }
+}
+footer {
+  background: var(--theme-primary);
+  min-height: 220px;
+  display: flex;
+  flex-direction: column;
+}
+footer .location {
+  flex-grow: 1;
+  padding: 32px 32px;
+  color: var(--theme-primary-lightest);
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+}
+footer .social {
+  width: 144px;
+  height: 24px;
+  background: url(data:image/png;base64,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) no-repeat center left;
+  background-size: contain;
+}
+footer h2 {
+  margin: 0;
+  font-size: 1.125rem;
+}
+footer address {
+  font-style: normal;
+  padding-top: 8px;
+  font-size: 0.875rem;
+}
+footer .copyright {
+  background: HSL(240 4% 15%);
+  color: white;
+  font-size: 0.75rem;
+  padding: 24px 32px;
+}
+.donateSec {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  max-width: 1400px;
+  align-self: center;
+  padding: 0 84px;
+}
+.donateSec > div {
+  flex: 1 1 0px;
+}
+@media only screen and (max-width: 768px) {
+  .donateSec {
+    flex-direction: column;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .donateSec {
+    padding: 0px;
+  }
+}
+div.iframeFake {
+  padding: 0 48px;
+}
+@media only screen and (max-width: 768px) {
+  div.iframeFake {
+    padding: 0;
+  }
+}

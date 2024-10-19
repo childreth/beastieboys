@@ -1,0 +1,251 @@
+@import './theme.scss';
+
+.inputGroup {
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
+	margin: $p-3 $p-0 $p-0 $p-0;
+	position: relative;
+
+	label {
+		@include body-sm;
+		color: $neutral-30;
+		padding-bottom: $p-1;
+		text-align: left;
+	}
+	.errormsg,.helper {
+		@include body-xs;
+		gap: 2px;
+		padding: 0 0 $p-1 0;
+		color: $neutral-40;
+	}
+	.errormsg {
+		display: none;
+		color: $error;
+		.material-symbols-rounded {
+			color: $error;
+		}	
+	}
+	
+	input[type],
+	textarea,
+	select {
+		border: 1px solid $border-input;
+		@include body;
+		box-sizing: border-box;
+		width: 100%;
+		// line-height: 24px;
+		min-height: 2.5rem;
+		border-radius: $border-rnd-md;
+		padding: $p-1 $p-3;
+		margin: 0 0 $p-1 0;
+		transition: all 0.2s ease-in-out;
+		background-color: white;
+	}
+	
+	textarea {
+		padding: $p-2 $p-3;
+		min-height: 60px;
+	}
+	select {
+		background: url('../../img/arrow_down.svg') no-repeat calc(100% - 12px) 50%;
+		min-height: 2.5rem;
+		padding: $p-1 $p-3;
+		-webkit-appearance: none;
+		appearance: none;
+		box-shadow: $button-shadow;
+	}
+
+	select:autofill {
+		appearance: auto;
+	}
+
+	input[type].error,
+	textarea.error {
+		border: 1px solid $error !important;
+	}
+	textarea.resizeHorz {
+		resize: horizontal;
+	}
+	textarea.resizeVert {
+		resize: vertical;
+	}
+}
+.inputGroup.error .errormsg {
+	display: flex;
+}
+.inputGroup.error.not-empty .errormsg {
+	.empty {
+		display: none;
+	}
+	.format {
+		display: flex;
+	}
+	
+}
+.inputGroup.error .errormsg {
+	.empty {
+		display: flex;
+	}
+	.format {
+		display: none;
+	}
+
+} 
+
+.checkboxGroup {
+	padding: $p-0_5 0;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	align-content: center;
+	cursor: pointer;
+	gap: 4px;
+	position: relative;
+
+	label {
+		@include body-sm;
+		color: $neutral-30;
+		display: flex;
+		align-items: center;
+		flex-direction: row;
+		padding: $p-0_5 0;
+		cursor: inherit;
+		gap: 4px;
+        span {
+            border-radius: $border-rnd-md;
+        }
+
+		svg {
+			display: flex;
+			align-items: center;
+			// width: 1rem;
+			// height: 1rem;
+			filter: drop-shadow(0px 2px 2px hsl(25 4% 10% / 12%));
+			pointer-events: none;
+			rect {
+				// fill:$neutral-100;
+			}
+		}
+		svg.checked > rect {
+			fill: $theme-primary;
+		}
+	}
+
+	input[type='checkbox'] {
+        //svg version
+		// -webkit-appearance: none;
+		// -moz-appearance: none;
+		// /* appearance: none; */
+		// left: 8px;
+		// opacity: 0;
+		// position: absolute;
+		// top: 8px;
+        //input style
+		appearance: none;
+		/* background-color: #fff; */
+		background: #fff url("../../img/checkbox_check.svg") no-repeat center center;
+		background-size: 40%;
+		margin: 0;
+		cursor: inherit;
+		width: 16px;
+		height:16px;
+		margin: 4px;
+		border: 1px solid $border-input;
+		border-radius: $border-rnd-sm;
+		box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+		/* transform: translateY(-0.075em); */
+		transition: all 0.2s ease-in-out;
+	}
+	input[type='checkbox']:active {
+		// border: 1px solid $border-input;
+		// box-shadow: 0 1px 1px 0 $button-shadow;
+		// transform: scale(0.95);
+	}
+	input[type='checkbox']:focus + label span {
+		// outline: 2px dotted $theme-focus;
+		// outline-offset: -2px;
+	}
+
+	input[type='checkbox']:checked {
+		background-color: $theme-primary;
+		background-size: 90%;
+		box-sizing: border-box;
+		border:0px solid $theme-primary;
+		box-shadow: 0 2px 4px 0 $button-shadow;
+	}
+}
+
+.inputGroup.error {
+	transition: all 0.25s ease-in-out;
+	label {
+		color: $error;
+		transition: inherit;
+	}
+	input[type],
+	textarea,
+	select {
+		border-color: $error;
+		background-color: $error-bg;
+		transition: inherit;
+	}
+	.optional,
+	.required,
+	.counter,
+	.material-symbols-rounded {
+		color: $error;
+	}
+	.material-symbols-rounded {font-size: 1rem!important;}
+	.helper {display:none;}
+	.charUsed {
+		font-weight: 700;
+	}
+}
+
+.optional {
+	color: $neutral-40;
+	font-size: .875rem!important;
+}
+
+.required {
+	color: $neutral-30;
+	font-size: 0.8em;
+	line-height: 0.5rem;
+	display: inline-flex;
+	margin-left: -4px;
+}
+.helper {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: center;
+}
+
+.counter,
+.numberCounter {
+	@include body-xs;
+	color: $neutral-30;
+	display: flex;
+	flex-direction: row;
+	flex-grow: 1;
+	gap: 2px;
+	justify-content: flex-start;
+	align-items: center;
+	span {
+		display: flex;
+	}
+	.condenseCounter {
+		flex-grow: 1;
+		justify-content: flex-end;
+	}
+}
+
+.numberCounter {
+}
+.fieldCol2 {
+	display: flex;
+	flex-direction: row;
+	gap: 8px;
+	flex: 0 1 auto;
+}
