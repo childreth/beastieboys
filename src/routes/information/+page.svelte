@@ -81,7 +81,8 @@
 		let skipVal = false;
 
 		if (!skipVal) {
-			if (theForm.checkValidity()) {
+			cons
+			if (theForm?.checkValidity()) {
 				// dialog.show();
 				// setTimeout(() => {
 				// 	console.log('processed');

@@ -33,7 +33,7 @@
 			
 		{/if}
 		{#if toolTip !== ''}
-			<div class="tooltip"  tabindex='0'><img src={iconInfo} alt='fees tooltip' role='tooltip'>
+			<div class="tooltip"  tabindex='0'><img src={iconInfo} alt='fees tooltip' >
 				<span class="tooltiptext">{toolTip}</span>
 			</div>
 		{/if}
